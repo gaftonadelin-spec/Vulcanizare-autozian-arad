@@ -3,7 +3,7 @@
 
   const WHATSAPP_NUMBER = '40700000000'; // înlocuiește cu numărul real, fără +
   const SUPPORTED = ['ro', 'en', 'de'];
-  const THEME_LABEL = { ro: 'Mod întunecat', en: 'Dark mode', de: 'Dunkelmodus' };
+  const THEME_LABEL = { ro: 'Schimbă tema', en: 'Toggle theme', de: 'Farbschema wechseln' };
   let lang = 'ro';
 
   const t = (key) => translations[lang][key] ?? key;
@@ -19,13 +19,13 @@
       themeBtn.setAttribute('title', THEME_LABEL[lang]);
     }
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', dark ? '#0B0D10' : '#F3F4F6');
+    if (meta) meta.setAttribute('content', dark ? '#0A0608' : '#FFFFFF');
   }
 
   function toggleTheme() {
     const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', next);
-    try { localStorage.setItem('theme', next); } catch (e) { /* storage indisponibil */ }
+    try { localStorage.setItem('theme', next); } catch (e) {}
     syncThemeUI();
   }
   if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
@@ -34,7 +34,7 @@
   function setLang(next) {
     if (!SUPPORTED.includes(next)) next = 'ro';
     lang = next;
-    try { localStorage.setItem('lang', lang); } catch (e) { /* storage indisponibil */ }
+    try { localStorage.setItem('lang', lang); } catch (e) {}
 
     document.documentElement.lang = lang;
     document.title = t('pageTitle');
@@ -87,7 +87,7 @@
     items.forEach((el) => io.observe(el));
   }
 
-  /* ---------- Parallax pe poze + mișcarea marcajelor la scroll ---------- */
+  /* ---------- Parallax pe desktop + marcaje la scroll ---------- */
   function initParallax() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -97,13 +97,18 @@
 
     function update() {
       ticking = false;
+      const isDesktop = window.innerWidth >= 768;
       const vh = window.innerHeight;
 
       layers.forEach((layer) => {
+        if (!isDesktop) {
+          layer.style.transform = 'none';
+          return;
+        }
         const box = layer.parentElement.getBoundingClientRect();
         if (box.bottom < 0 || box.top > vh) return;
-        const d = box.top + box.height / 2 - vh / 2;   // distanța față de centrul ecranului
-        const lim = box.height * 0.1;                   // stratul are 10% rezervă sus și jos
+        const d = box.top + box.height / 2 - vh / 2;
+        const lim = box.height * 0.1;
         const off = Math.max(-lim, Math.min(lim, -d * 0.15));
         layer.style.transform = 'translate3d(0,' + off.toFixed(1) + 'px,0)';
       });
@@ -129,7 +134,7 @@
   });
 
   let saved = null;
-  try { saved = localStorage.getItem('lang'); } catch (e) { /* ignorat */ }
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
   setLang(saved || 'ro');
   initReveal();
   initParallax();

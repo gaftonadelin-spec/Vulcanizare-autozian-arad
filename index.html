@@ -2,12 +2,12 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <title>Vulcanizare Non Stop Arad | Vulcanizare Mobilă și Camioane – Autozian G&amp;G</title>
   <meta name="description" content="Vulcanizare non stop Arad și A1: vulcanizare mobilă, vulcanizare camioane și turisme. Intervenție în 30 min. Sună sau trimite locația pe WhatsApp.">
   <meta name="keywords" content="vulcanizare non stop Arad, vulcanizare mobila Arad, vulcanizare camioane Arad, vulcanizare A1, vulcanizare Nădlac, anvelope TIR Arad">
-  <meta name="theme-color" content="#0B0D10">
-  <meta property="og:title" content="Vulcanizare Autozian G&G – Non-Stop Arad &amp; A1">
+  <meta name="theme-color" content="#0A0608">
+  <meta property="og:title" content="Vulcanizare Autozian G&amp;G – Non-Stop Arad &amp; A1">
   <meta property="og:description" content="Vulcanizare mobilă și camioane, 24/7, în Arad și pe A1.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,6 @@
       try { t = localStorage.getItem('theme') || 'dark'; } catch (e) {}
       document.documentElement.setAttribute('data-theme', t);
     })();
-    /* Fallback poze: 1) assets/ (pozele reale) -> 2) data-fb (Unsplash) -> 3) ascunde imaginea */
     function imgFb(img) {
       if (img.dataset.fb && !img.dataset.tried) { img.dataset.tried = '1'; img.src = img.dataset.fb; }
       else { img.style.display = 'none'; }
@@ -34,7 +33,7 @@
     "name": "Vulcanizare Autozian G&G SRL",
     "description": "Vulcanizare non stop Arad, vulcanizare mobilă Arad și vulcanizare camioane Arad. Intervenții pe A1 și în Nădlac.",
     "telephone": "+40700000000",
-    "url": "https://USERNAME.github.io/vulcanizare-autozian-demo/",
+    "url": "https://gaftonadelin-spec.github.io/Vulcanizare-autozian-arad/",
     "priceRange": "$$",
     "address": { "@type": "PostalAddress", "streetAddress": "Calea Timișorii 100", "addressLocality": "Arad", "addressRegion": "Arad", "postalCode": "310001", "addressCountry": "RO" },
     "geo": { "@type": "GeoCoordinates", "latitude": 46.1866, "longitude": 21.3123 },
@@ -67,9 +66,9 @@
     </div>
     <div class="nav-end">
       <div class="langs" role="group" aria-label="Language">
-        <button class="lang-btn" data-lang="ro">RO</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="de">DE</button>
+        <button type="button" class="lang-btn" data-lang="ro">RO</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="de">DE</button>
       </div>
       <button type="button" class="theme" id="theme-toggle" role="switch" aria-checked="true" aria-label="Mod întunecat">
         <span class="thumb">
@@ -92,15 +91,12 @@
           </svg>
         </span>
       </button>
-      <a href="tel:+40700000000" class="btn btn-amber btn-sm call" data-i18n="navCall">Sună acum</a>
+      <a href="tel:+40700000000" class="btn btn-primary btn-sm call" data-i18n="navCall">Sună acum</a>
     </div>
   </nav>
 </header>
 
 <main id="top">
-  <!-- HERO (parallax + Ken Burns)
-       FOTO: pune poza reală în assets/hero.jpg (1600x900, TIR pe șosea sau roată de camion).
-       Până atunci se folosește linkul din data-fb. -->
   <section class="hero">
     <div class="pxl" data-px>
       <img src="assets/hero.jpg" data-fb="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1600&q=80" alt="" fetchpriority="high" onerror="imgFb(this)">
@@ -112,7 +108,7 @@
       <h1 data-i18n="heroTitle">Pană pe drum? Ajungem la tine.</h1>
       <p class="lead" data-i18n="heroSub">Vulcanizare mobilă pentru TIR și turisme, zi și noapte, în Arad, Nădlac și pe Autostrada A1.</p>
       <div class="cta">
-        <a href="tel:+40700000000" class="btn btn-amber"><span data-i18n="btnCall">Sună Non-Stop</span></a>
+        <a href="tel:+40700000000" class="btn btn-primary"><span data-i18n="btnCall">Sună Non-Stop</span></a>
         <button type="button" class="btn btn-wa js-wa"><span data-i18n="btnWa">Trimite locația pe WhatsApp</span></button>
       </div>
       <ul class="trust">
@@ -124,34 +120,26 @@
   </section>
   <div class="hazard" aria-hidden="true"></div>
 
-  <!-- SERVICII (doar anvelope, roți, jante, intervenții pe drum) -->
   <section id="servicii" class="wrap sec">
     <h2 class="h2" data-rv data-i18n="svcTitle">Ce reparăm</h2>
     <div class="cards">
-
-      <!-- FOTO: assets/mobil.jpg (intervenție pe drum / schimb de roată) -->
       <article class="card" data-rv>
         <figure class="ph"><img src="assets/mobil.jpg" data-fb="https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" onerror="imgFb(this)"></figure>
         <div class="card-b"><h3 data-i18n="s1t">Vulcanizare mobilă</h3><p data-i18n="s1d">Intervenții rapide la fața locului în Arad, Nădlac, Autostrada A1 și împrejurimi.</p></div>
       </article>
 
-      <!-- FOTO: assets/camion.jpg (roți grele de camion / TIR) -->
       <article class="card" data-rv>
         <figure class="ph"><img src="assets/camion.jpg" data-fb="https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" onerror="imgFb(this)"></figure>
         <div class="card-b"><h3 data-i18n="s2t">Camioane / TIR</h3><p data-i18n="s2d">Schimb anvelope, echilibrat, reparații la cald și la rece, flote comerciale.</p></div>
       </article>
 
-      <!-- FOTO: assets/turism.jpg (anvelope și jante de turism) -->
       <article class="card" data-rv>
         <figure class="ph"><img src="assets/turism.jpg" data-fb="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" onerror="imgFb(this)"></figure>
         <div class="card-b"><h3 data-i18n="s3t">Turisme și anvelope</h3><p data-i18n="s3d">Schimb sezonier, vulcanizare, echilibrare roți, anvelope noi și SH.</p></div>
       </article>
-
     </div>
   </section>
 
-  <!-- MIJLOCUL PAGINII: fundal foto pe toată lățimea, overlay rgba(11,13,16,.85), parallax
-       FOTO: assets/noapte.jpg (TIR / autostradă / intervenție pe timp de noapte) -->
   <section id="pasi" class="mid">
     <div class="pxl" data-px>
       <img src="assets/noapte.jpg" data-fb="https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" onerror="imgFb(this)">
@@ -169,7 +157,6 @@
     </div>
   </section>
 
-  <!-- STATISTICI + LOCATIE -->
   <section id="locatie" class="proof">
     <div class="deco deco-top" aria-hidden="true"><i class="tread"></i><i class="dash"></i></div>
     <div class="wrap sec proof-in">
@@ -184,7 +171,7 @@
           <address>Calea Timișorii 100<br>Arad, România</address>
         </div>
         <div class="loc-btns">
-          <a class="btn btn-amber" target="_blank" rel="noopener" href="https://waze.com/ul?q=Calea%20Timisorii%20100%20Arad&navigate=yes"><span data-i18n="btnWaze">Deschide în Waze</span></a>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://waze.com/ul?q=Calea%20Timisorii%20100%20Arad&navigate=yes"><span data-i18n="btnWaze">Deschide în Waze</span></a>
           <a class="btn btn-line" target="_blank" rel="noopener" href="https://maps.google.com/?q=Calea%20Timisorii%20100%20Arad"><span data-i18n="btnMaps">Deschide în Google Maps</span></a>
         </div>
       </div>
@@ -198,7 +185,7 @@
 </footer>
 
 <div class="bar">
-  <a href="tel:+40700000000" class="btn btn-amber btn-sm"><span data-i18n="barCall">Sună</span></a>
+  <a href="tel:+40700000000" class="btn btn-primary btn-sm"><span data-i18n="barCall">Sună</span></a>
   <button type="button" class="btn btn-wa btn-sm js-wa"><span data-i18n="barWa">WhatsApp Locație</span></button>
 </div>
 
